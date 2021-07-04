@@ -25,14 +25,8 @@ bot.on("error", (err) => {
 });
 
 bot.on("messageCreate", (msg) => {
-    if (msg.content.startsWith("h-say") && msg.channel.id == "772869010319998997") {
-        message = msg.content.split(" ")
-        message.shift()
-        message = message.join(" ")
-        bot.createMessage("794978574452654080", message)
-    }
-    if (msg.content.toLowerCase().includes("trade") && msg.content.toLowerCase().includes("http")) {
-        bot.createMessage("786730183804977163", {
+    if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes("http")) {
+        return bot.createMessage("772869010319998997", {
             "embed": {
                 "title": "Potential scam!",
                 "fields": [{
@@ -47,46 +41,41 @@ bot.on("messageCreate", (msg) => {
                 }]
             }
         })
-        msg.channel.guild.fetchMembers({
-            userIDs: msg.author.id
-        }).then(users => {
-            if (!users.length) {
-                return msg.channel.createMessage({
-                    "embed": {
-                        "description": `:x: Couldn't find that user!`
-                    }
-                })
+    }
+
+    if (msg.content.toLowerCase().includes("give") && msg.content.toLowerCase().includes("http")) {
+    return bot.createMessage("772869010319998997", {
+            "embed": {
+                "title": "Potential scam!",
+                "fields": [{
+                    "name": "Message Link",
+                    "value": `[Jump!](${msg.jumpLink})`
+                }, {
+                    "name": "Message",
+                    "value": msg.content
+                }, {
+                    "name": "User",
+                    "value": `<@${msg.author.id}> (${msg.author.id})`
+                }]
             }
-            users.forEach(user => {
-                bot.createMessage("786730183804977163", {
-                    "embed": {
-                        "description": `<@${user.id}>`,
-                        "footer": {
-                            "icon_url": "https://cdn.discordapp.com/attachments/798314687321735199/821861569830977616/Screenshot-20200818-075705-removebg-preview.png",
-                            "text": `ID: ${user.id} • GMT • Honer`
-                        },
-                        "thumbnail": {
-                            "url": user.avatarURL
-                        },
-                        "author": {
-                            "name": `${user.username}#${user.discriminator}`,
-                            "icon_url": user.avatarURL
-                        },
-                        "fields": [{
-                            "name": "Joined",
-                            "value": new Date(user.joinedAt).toGMTString().slice(0, -4),
-                            "inline": true
-                        }, {
-                            "name": "Registered",
-                            "value": new Date(user.createdAt).toGMTString().slice(0, -4),
-                            "inline": true
-                        }, {
-                            "name": `Roles [${user.roles.length}]`,
-                            "value": user.roles.length ? `<@&${user.roles.join("> <@&")}>` : "None",
-                        }]
-                    }
-                })
-            })
+        })
+    }
+
+    if (msg.content.toLowerCase().includes("trade") && msg.content.toLowerCase().includes("http")) {
+        return bot.createMessage("772869010319998997", {
+            "embed": {
+                "title": "Potential scam!",
+                "fields": [{
+                    "name": "Message Link",
+                    "value": `[Jump!](${msg.jumpLink})`
+                }, {
+                    "name": "Message",
+                    "value": msg.content
+                }, {
+                    "name": "User",
+                    "value": `<@${msg.author.id}> (${msg.author.id})`
+                }]
+            }
         })
     }
 });
