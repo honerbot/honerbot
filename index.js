@@ -26,7 +26,7 @@ bot.on("error", (err) => {
 
 bot.on("messageCreate", (msg) => {
     if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes("http")) {
-        return bot.createMessage("772869010319998997", {
+        return bot.createMessage("861084246487203850", {
             "embed": {
                 "title": "Potential scam!",
                 "fields": [{
@@ -44,7 +44,7 @@ bot.on("messageCreate", (msg) => {
     }
 
     if (msg.content.toLowerCase().includes("give") && msg.content.toLowerCase().includes("http")) {
-    return bot.createMessage("772869010319998997", {
+    return bot.createMessage("861084246487203850", {
             "embed": {
                 "title": "Potential scam!",
                 "fields": [{
@@ -62,7 +62,7 @@ bot.on("messageCreate", (msg) => {
     }
 
     if (msg.content.toLowerCase().includes("trade") && msg.content.toLowerCase().includes("http")) {
-        return bot.createMessage("772869010319998997", {
+        return bot.createMessage("861084246487203850", {
             "embed": {
                 "title": "Potential scam!",
                 "fields": [{
@@ -234,8 +234,8 @@ bot.on("guildMemberUpdate", (guild, member, oldMember) => {
     if (boostCount == guild.premiumSubscriptionCount) return;
     if (boostCount > guild.premiumSubscriptionCount) return boostCount = guild.premiumSubscriptionCount;
     if (boostCount < guild.premiumSubscriptionCount) {
-        if (member?.roles.find(role => role == "754798744406458459") && !oldMember?.roles.find(role => role == "754798744406458459")) bot.createMessage("786730183804977163", `<@${member.id}> has **boosted** the server! The current boost count is now **${guild.premiumSubscriptionCount}**.`)
-        if (member?.roles.find(role => role == "754798744406458459") && oldMember?.roles.find(role => role == "754798744406458459")) bot.createMessage("786730183804977163", `<@${member.id}> has **boosted** the server again! The current boost count is now **${guild.premiumSubscriptionCount}**.`)
+        if (member?.roles.find(role => role == "754798744406458459") && !oldMember?.roles.find(role => role == "754798744406458459")) bot.createMessage("861084246487203850", `<@${member.id}> has **boosted** the server! The current boost count is now **${guild.premiumSubscriptionCount}**.`)
+        if (member?.roles.find(role => role == "754798744406458459") && oldMember?.roles.find(role => role == "754798744406458459")) bot.createMessage("861084246487203850", `<@${member.id}> has **boosted** the server again! The current boost count is now **${guild.premiumSubscriptionCount}**.`)
         return boostCount = guild.premiumSubscriptionCount;
     }
 })
