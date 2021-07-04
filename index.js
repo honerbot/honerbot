@@ -32,10 +32,7 @@ bot.on("messageCreate", (msg) => {
                 "fields": [{
                     "name": "Message Link",
                     "value": `[Jump!](${msg.jumpLink})`
-                }, {
-                    "name": "Message",
-                    "value": msg.content
-                }, {
+                },  {
                     "name": "User",
                     "value": `<@${msg.author.id}> (${msg.author.id})`
                 }]
