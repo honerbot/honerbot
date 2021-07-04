@@ -15,7 +15,6 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }} # User of the server you want to ssh into
      
           script: |
-            mkdir honerbot
-            cd honerbot 
             git clone git@github.com:honerbot/honerbot.git 
-            echo 'Deployment successful to digital ocean' 
+            cd honerbot 
+            echo 'Deployment successful!' 
