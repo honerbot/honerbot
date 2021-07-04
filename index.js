@@ -25,7 +25,7 @@ bot.on("error", (err) => {
 });
 
 bot.on("messageCreate", (msg) => {
-    if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes("http")) {
+    function potentialScam(msg) {
         return bot.createMessage("861084246487203850", {
             "embed": {
                 "title": "Potential scam!",
@@ -41,42 +41,22 @@ bot.on("messageCreate", (msg) => {
                 }]
             }
         })
+    }
+
+    if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes("http")) {
+        potentialScam(msg)
     }
 
     if (msg.content.toLowerCase().includes("give") && msg.content.toLowerCase().includes("http")) {
-    return bot.createMessage("861084246487203850", {
-            "embed": {
-                "title": "Potential scam!",
-                "fields": [{
-                    "name": "Message Link",
-                    "value": `[Jump!](${msg.jumpLink})`
-                }, {
-                    "name": "Message",
-                    "value": msg.content
-                }, {
-                    "name": "User",
-                    "value": `<@${msg.author.id}> (${msg.author.id})`
-                }]
-            }
-        })
+        potentialScam(msg)
     }
 
     if (msg.content.toLowerCase().includes("trade") && msg.content.toLowerCase().includes("http")) {
-        return bot.createMessage("861084246487203850", {
-            "embed": {
-                "title": "Potential scam!",
-                "fields": [{
-                    "name": "Message Link",
-                    "value": `[Jump!](${msg.jumpLink})`
-                }, {
-                    "name": "Message",
-                    "value": msg.content
-                }, {
-                    "name": "User",
-                    "value": `<@${msg.author.id}> (${msg.author.id})`
-                }]
-            }
-        })
+        potentialScam(msg)
+    }
+
+    if (msg.content.toLowerCase().includes("free") && msg.content.toLowerCase().includes("case") && msg.content.toLowerCase().includes("http")) {
+        potentialScam(msg)
     }
 });
 
