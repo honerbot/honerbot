@@ -81,7 +81,7 @@ bot.registerCommand("gwhois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Registered",
-                    "value": new Date(msg.author.createdAt).toGMTString(),
+                    "value": `<t:${Math.round((msg.author.createdAt / 4194304 + 1420070400000))}>`,
                     "inline": true
                 }]
             }
@@ -122,7 +122,7 @@ bot.registerCommand("gwhois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Registered",
-                    "value": new Date(user.createdAt).toGMTString(),
+                    "value": `<t:${Math.round((msg.author.createdAt / 4194304 + 1420070400000) / 1000)}>`,
                     "inline": true
                 }]
             }
@@ -141,7 +141,7 @@ bot.registerCommand("whois", (msg, args) => {
                 "description": `<@${msg.member.id}>`,
                 "footer": {
                     "icon_url": "https://cdn.discordapp.com/attachments/798314687321735199/821861569830977616/Screenshot-20200818-075705-removebg-preview.png",
-                    "text": `ID: ${msg.member.id} • GMT • Honer`
+                    "text": `ID: ${msg.member.id} • Honer`
                 },
                 "thumbnail": {
                     "url": msg.member.avatarURL
@@ -152,11 +152,11 @@ bot.registerCommand("whois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Joined",
-                    "value": new Date(msg.member.joinedAt).toGMTString().slice(0, -4),
+                    "value": `<t:${Math.round((msg.member.joinedAt / 4194304 + 1420070400000) / 1000)}>`,
                     "inline": true
                 }, {
                     "name": "Registered",
-                    "value": new Date(msg.member.createdAt).toGMTString().slice(0, -4),
+                    "value": `<t:${Math.round((msg.author.createdAt / 4194304 + 1420070400000) / 1000)}>`,
                     "inline": true
                 }, {
                     "name": `Roles [${msg.member.roles.length}]`,
@@ -182,7 +182,7 @@ bot.registerCommand("whois", (msg, args) => {
                     "description": `<@${user.id}>`,
                     "footer": {
                         "icon_url": "https://cdn.discordapp.com/attachments/798314687321735199/821861569830977616/Screenshot-20200818-075705-removebg-preview.png",
-                        "text": `ID: ${user.id} • GMT • Honer`
+                        "text": `ID: ${user.id} • Honer`
                     },
                     "thumbnail": {
                         "url": user.avatarURL
@@ -193,11 +193,11 @@ bot.registerCommand("whois", (msg, args) => {
                     },
                     "fields": [{
                         "name": "Joined",
-                        "value": new Date(user.joinedAt).toGMTString().slice(0, -4),
+                        "value": `<t:${Math.round((user.joinedAt / 4194304 + 1420070400000) / 1000)}>`,
                         "inline": true
                     }, {
                         "name": "Registered",
-                        "value": new Date(user.createdAt).toGMTString().slice(0, -4),
+                        "value": `<t:${Math.round((user.createdAt / 4194304 + 1420070400000) / 1000)}>`,
                         "inline": true
                     }, {
                         "name": `Roles [${user.roles.length}]`,
