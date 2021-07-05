@@ -81,7 +81,7 @@ bot.registerCommand("gwhois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Registered",
-                    "value": `<t:${msg.author.createdAt}:F>`,
+                    "value": `<t:${msg.author.createdAt}>`,
                     "inline": true
                 }]
             }
@@ -122,7 +122,7 @@ bot.registerCommand("gwhois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Registered",
-                    "value": `<t:${msg.author.createdAt}:F>`,
+                    "value": `<t:${msg.author.createdAt}>`,
                     "inline": true
                 }]
             }
@@ -152,11 +152,11 @@ bot.registerCommand("whois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Joined",
-                    "value": `<t:${msg.member.joinedAt}:F>`,
+                    "value": `<t:${msg.member.joinedAt}>`,
                     "inline": true
                 }, {
                     "name": "Registered",
-                    "value": `<t:${msg.author.createdAt}:F>`,
+                    "value": `<t:${msg.author.createdAt}>`,
                     "inline": true
                 }, {
                     "name": `Roles [${msg.member.roles.length}]`,
@@ -193,11 +193,11 @@ bot.registerCommand("whois", (msg, args) => {
                     },
                     "fields": [{
                         "name": "Joined",
-                        "value": `<t:${user.createdAt}:F>`,
+                        "value": `<t:${user.createdAt}>`,
                         "inline": true
                     }, {
                         "name": "Registered",
-                        "value": `<t:${user.createdAt}:F>`,
+                        "value": `<t:${user.createdAt}>`,
                         "inline": true
                     }, {
                         "name": `Roles [${user.roles.length}]`,
