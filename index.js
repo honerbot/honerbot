@@ -28,7 +28,7 @@ bot.on("error", (err) => {
 bot.on("guildMemberAdd", (guild, member) => {
     if (member.username.includes("gg/motion")) {
         member.ban(0, "Honer: MOTION BOT")
-        return bot.createMessage("861720817192534096", `${member.mention} (${member.id}) was banned.`)
+        return bot.createMessage("861084246487203850", `${member.mention} (${member.id}) was banned.`)
     }
 })
 
