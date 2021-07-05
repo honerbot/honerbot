@@ -81,7 +81,7 @@ bot.registerCommand("gwhois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Registered",
-                    "value": `<t:${Math.round(msg.author.createdAt / 4194304 + 1420070400000)}>`,
+                    "value": `<t:${Math.round((msg.author.createdAt / 4194304 + 1420070400000) / 1000)}>`,
                     "inline": true
                 }]
             }
@@ -122,7 +122,7 @@ bot.registerCommand("gwhois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Registered",
-                    "value": `<t:${Math.round(msg.author.createdAt / 4194304 + 1420070400000)}>`,
+                    "value": `<t:${Math.round((msg.author.createdAt / 4194304 + 1420070400000) / 1000)}>`,
                     "inline": true
                 }]
             }
@@ -152,11 +152,11 @@ bot.registerCommand("whois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Joined",
-                    "value": `<t:${Math.round(msg.member.joinedAt / 4194304 + 1420070400000)}>`,
+                    "value": `<t:${Math.round((msg.member.joinedAt / 4194304 + 1420070400000) / 1000)}>`,
                     "inline": true
                 }, {
                     "name": "Registered",
-                    "value": `<t:${Math.round(msg.author.createdAt / 4194304 + 1420070400000)}>`,
+                    "value": `<t:${Math.round((msg.author.createdAt / 4194304 + 1420070400000) / 1000)}>`,
                     "inline": true
                 }, {
                     "name": `Roles [${msg.member.roles.length}]`,
@@ -193,11 +193,11 @@ bot.registerCommand("whois", (msg, args) => {
                     },
                     "fields": [{
                         "name": "Joined",
-                        "value": `<t:${Math.round(user.joinedAt / 4194304 + 1420070400000)}>`,
+                        "value": `<t:${Math.round((user.joinedAt / 4194304 + 1420070400000) ) / 1000)}>`,
                         "inline": true
                     }, {
                         "name": "Registered",
-                        "value": `<t:${Math.round(user.createdAt / 4194304 + 1420070400000)}>`,
+                        "value": `<t:${Math.round((user.createdAt / 4194304 + 1420070400000) / 1000)}>`,
                         "inline": true
                     }, {
                         "name": `Roles [${user.roles.length}]`,
