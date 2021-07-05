@@ -81,7 +81,7 @@ bot.registerCommand("gwhois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Registered",
-                    "value": new Date(msg.author.createdAt).toGMTString(),
+                    "value": `<t:${msg.author.createdAt}:F>`,
                     "inline": true
                 }]
             }
@@ -122,7 +122,7 @@ bot.registerCommand("gwhois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Registered",
-                    "value": new Date(user.createdAt).toGMTString(),
+                    "value": `<t:${msg.author.createdAt}:F>`,
                     "inline": true
                 }]
             }
@@ -152,11 +152,11 @@ bot.registerCommand("whois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Joined",
-                    "value": new Date(msg.member.joinedAt).toGMTString().slice(0, -4),
+                    "value": `<t:${msg.member.joinedAt}:F>`,
                     "inline": true
                 }, {
                     "name": "Registered",
-                    "value": new Date(msg.member.createdAt).toGMTString().slice(0, -4),
+                    "value": `<t:${msg.author.createdAt}:F>`,
                     "inline": true
                 }, {
                     "name": `Roles [${msg.member.roles.length}]`,
@@ -193,11 +193,11 @@ bot.registerCommand("whois", (msg, args) => {
                     },
                     "fields": [{
                         "name": "Joined",
-                        "value": new Date(user.joinedAt).toGMTString().slice(0, -4),
+                        "value": `<t:${user.createdAt}:F>`,
                         "inline": true
                     }, {
                         "name": "Registered",
-                        "value": new Date(user.createdAt).toGMTString().slice(0, -4),
+                        "value": `<t:${user.createdAt}:F>`,
                         "inline": true
                     }, {
                         "name": `Roles [${user.roles.length}]`,
