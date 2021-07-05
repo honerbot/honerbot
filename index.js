@@ -9,7 +9,8 @@ const bot = new Eris.CommandClient("Bot " + process.env.token, {
     prefix: [process.env.prefix, "@mention "]
 });
 
-let boostCount;
+let boostCount,
+suspicious = [];
 
 bot.on("ready", () => {
     console.log("Ready!");
@@ -26,8 +27,11 @@ bot.on("error", (err) => {
 
 bot.on("messageCreate", (msg) => {
     function potentialScam(msg) {
+        suspicious.push(msg.author.id);
+        suspicious = [...new Set(suspicious)];
         return bot.createMessage("861084246487203850", {
             "embed": {
+                "color": 15158332,
                 "title": "Potential scam!",
                 "fields": [{
                     "name": "Message Link",
@@ -217,6 +221,22 @@ bot.on("guildMemberUpdate", (guild, member, oldMember) => {
         if (member?.roles.find(role => role == "754798744406458459") && !oldMember?.roles.find(role => role == "754798744406458459")) bot.createMessage("861084246487203850", `<@${member.id}> has **boosted** the server! The current boost count is now **${guild.premiumSubscriptionCount}**.`)
         if (member?.roles.find(role => role == "754798744406458459") && oldMember?.roles.find(role => role == "754798744406458459")) bot.createMessage("861084246487203850", `<@${member.id}> has **boosted** the server again! The current boost count is now **${guild.premiumSubscriptionCount}**.`)
         return boostCount = guild.premiumSubscriptionCount;
+    }
+})
+
+bot.on("guildBanAdd", (guild, user) => {
+    if (suspicious.indexOf(user.id) != -1) {
+        suspicious.splice(suspicious.indexOf(user.id), 1)
+        return bot.createMessage("861084246487203850", {
+            "embed": {
+                "color": 15158332,
+                "title": "Potential scammer banned.",
+                "fields": [{
+                    "name": "User",
+                    "value": `<@${user.id}>`
+                }]
+            }
+        })
     }
 })
 
