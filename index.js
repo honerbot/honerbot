@@ -44,19 +44,19 @@ bot.on("messageCreate", (msg) => {
         })
     }
 
-    if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes("http")) {
+    if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes(".ru/")) {
         potentialScam(msg)
     }
 
-    if (msg.content.toLowerCase().includes("give") && msg.content.toLowerCase().includes("http")) {
+    if (msg.content.toLowerCase().includes("give") && msg.content.toLowerCase().includes(".ru/")) {
         potentialScam(msg)
     }
 
-    if (msg.content.toLowerCase().includes("trade") && msg.content.toLowerCase().includes("http")) {
+    if (msg.content.toLowerCase().includes("trade") && msg.content.toLowerCase().includes(".ru/")) {
         potentialScam(msg)
     }
 
-    if (msg.content.toLowerCase().includes("free") && msg.content.toLowerCase().includes("case") && msg.content.toLowerCase().includes("http")) {
+    if (msg.content.toLowerCase().includes("free") && msg.content.toLowerCase().includes("case") && msg.content.toLowerCase().includes(".ru/")) {
         potentialScam(msg)
     }
 });
