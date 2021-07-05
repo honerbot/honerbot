@@ -81,7 +81,7 @@ bot.registerCommand("gwhois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Registered",
-                    "value": `<t:${msg.author.createdAt}>`,
+                    "value": `<t:${msg.author.createdAt / 4194304 + 1420070400000}>`,
                     "inline": true
                 }]
             }
@@ -122,7 +122,7 @@ bot.registerCommand("gwhois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Registered",
-                    "value": `<t:${msg.author.createdAt}>`,
+                    "value": `<t:${msg.author.createdAt / 4194304 + 1420070400000}>`,
                     "inline": true
                 }]
             }
@@ -152,11 +152,11 @@ bot.registerCommand("whois", (msg, args) => {
                 },
                 "fields": [{
                     "name": "Joined",
-                    "value": `<t:${msg.member.joinedAt}>`,
+                    "value": `<t:${msg.member.joinedAt / 4194304 + 1420070400000}>`,
                     "inline": true
                 }, {
                     "name": "Registered",
-                    "value": `<t:${msg.author.createdAt}>`,
+                    "value": `<t:${msg.author.createdAt / 4194304 + 1420070400000}>`,
                     "inline": true
                 }, {
                     "name": `Roles [${msg.member.roles.length}]`,
@@ -193,11 +193,11 @@ bot.registerCommand("whois", (msg, args) => {
                     },
                     "fields": [{
                         "name": "Joined",
-                        "value": `<t:${user.createdAt}>`,
+                        "value": `<t:${user.joinedAt / 4194304 + 1420070400000}>`,
                         "inline": true
                     }, {
                         "name": "Registered",
-                        "value": `<t:${user.createdAt}>`,
+                        "value": `<t:${user.createdAt / 4194304 + 1420070400000}>`,
                         "inline": true
                     }, {
                         "name": `Roles [${user.roles.length}]`,
