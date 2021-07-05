@@ -233,7 +233,7 @@ bot.on("guildBanAdd", (guild, user) => {
                 "title": "Potential scammer banned.",
                 "fields": [{
                     "name": "User",
-                    "value": `<@${user.id}>`
+                    "value": `<@${user.id}> (${user.id})`
                 }]
             }
         })
