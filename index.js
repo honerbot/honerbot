@@ -205,11 +205,14 @@ bot.registerCommand("whois", (msg, args) => {
 }, {
     description: "Find a user inside of the server.",
     fullDescription: "Find a user inside of the server with fetchMembers. This command is only available in Staff Commands."
-})
+})  
 
 bot.on("guildMemberUpdate", (guild, member, oldMember) => {
     if (boostCount == guild.premiumSubscriptionCount) return;
-    if (boostCount > guild.premiumSubscriptionCount) return boostCount = guild.premiumSubscriptionCount;
+    if (boostCount > guild.premiumSubscriptionCount) {
+        bot.createMessage("861084246487203850", `The server has **lost a boost**. The current boost count is now **${guild.premiumSubscriptionCount}**.`)
+        return boostCount = guild.premiumSubscriptionCount;
+    }
     if (boostCount < guild.premiumSubscriptionCount) {
         if (member?.roles.find(role => role == "754798744406458459") && !oldMember?.roles.find(role => role == "754798744406458459")) bot.createMessage("861084246487203850", `<@${member.id}> has **boosted** the server! The current boost count is now **${guild.premiumSubscriptionCount}**.`)
         if (member?.roles.find(role => role == "754798744406458459") && oldMember?.roles.find(role => role == "754798744406458459")) bot.createMessage("861084246487203850", `<@${member.id}> has **boosted** the server again! The current boost count is now **${guild.premiumSubscriptionCount}**.`)
