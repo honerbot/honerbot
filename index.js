@@ -37,7 +37,7 @@ bot.on("messageCreate", (msg) => {
         suspicious.push(msg.author.id);
         suspicious = [...new Set(suspicious)];
         return bot.createMessage("861084246487203850", {
-            "content": "||<@407348579376693260> <@498172723059621889>||", 
+            "content": "||<@&862034553808093184>||", 
             "embed": {
                 "color": 15158332,
                 "title": "Potential scam!",
