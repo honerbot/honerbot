@@ -34,22 +34,56 @@ bot.on("guildMemberAdd", (guild, member) => {
 
 bot.on("messageCreate", (msg) => {
     function potentialScam(msg) {
-        suspicious.push(msg.author.id);
-        suspicious = [...new Set(suspicious)];
-        return bot.createMessage("861084246487203850", {
-            "content": "||<@&862034553808093184>||", 
-            "embed": {
-                "color": 15158332,
-                "title": "Potential scam!",
-                "fields": [{
-                    "name": "Message Link",
-                    "value": `[Jump!](${msg.jumpLink})`
-                },  {
-                    "name": "User",
-                    "value": `<@${msg.author.id}> (${msg.author.id})`
-                }]
+        function potentialScam(msg) {
+            if (!suspicious[msg.author.id]) suspicious[msg.author.id] = 0;
+            if (suspicious[msg.author.id]++ == 3) {
+                msg.member.addRole("753650045475356774", "Passed VL4.")
+                return bot.createMessage("861084246487203850", {
+                    "embed": {
+                        "color": 15158332,
+                        "title": "Potential scammer automuted.",
+                        "fields": [{
+                            "name": "User",
+                            "value": `<@${msg.author.id}> (${msg.author.id})`
+                        }]
+                    }
+                })
+            } else {
+                return bot.createMessage("861084246487203850", {
+                    "content": "||<@&862034553808093184>||", 
+                    "embed": {
+                        "color": 15158332,
+                        "title": "Potential scam!",
+                        "fields": [{
+                            "name": "Message Link",
+                            "value": `[Jump!](${msg.jumpLink})`
+                        },  {
+                            "name": "User",
+                            "value": `<@${msg.author.id}> (${msg.author.id})`
+                        },  {
+                            "name": "VL",
+                            "value": suspicious[msg.author.id]
+                        }]
+                    }
+                })
             }
-        })
+        }
+    
+        if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes(".ru")) {
+            return potentialScam(msg)
+        }
+    
+        if (msg.content.toLowerCase().includes("give") && msg.content.toLowerCase().includes(".ru")) {
+            return potentialScam(msg)
+        }
+    
+        if (msg.content.toLowerCase().includes("trade") && msg.content.toLowerCase().includes(".ru")) {
+            return potentialScam(msg)
+        }
+    
+        if (msg.content.toLowerCase().includes("free") && msg.content.toLowerCase().includes("case") && msg.content.toLowerCase().includes(".ru")) {
+            return potentialScam(msg)
+        }
     }
 
     if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes(".ru/")) {
