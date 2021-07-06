@@ -39,9 +39,10 @@ bot.on("messageCreate", (msg) => {
             if (suspicious[msg.author.id]++ == 3) {
                 msg.member.addRole("753650045475356774", "Passed VL4.")
                 return bot.createMessage("861084246487203850", {
+                    "content": "||<@&862034553808093184>||", 
                     "embed": {
                         "color": 15158332,
-                        "title": "Potential scammer automuted.",
+                        "title": "Potential scammer automuted. Please delete the scammer's past messages.",
                         "fields": [{
                             "name": "User",
                             "value": `<@${msg.author.id}> (${msg.author.id})`
