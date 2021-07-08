@@ -71,7 +71,7 @@ bot.on("messageCreate", (msg) => {
                                 "value": `<@${msg.author.id}> (${msg.author.id})`
                             },  {
                                 "name": "VL",
-                                "value": suspicious[msg.author.id]
+                                "value": suspicious[msg.author.id].vl
                             }]
                         }
                     })
@@ -88,29 +88,13 @@ bot.on("messageCreate", (msg) => {
                                 "value": `<@${msg.author.id}> (${msg.author.id})`
                             },  {
                                 "name": "VL",
-                                "value": suspicious[msg.author.id]
+                                "value": suspicious[msg.author.id].vl
                             }]
                         }
                     })
                 }
                 
             }
-        }
-    
-        if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes(".ru")) {
-            return potentialScam(msg)
-        }
-    
-        if (msg.content.toLowerCase().includes("give") && msg.content.toLowerCase().includes(".ru")) {
-            return potentialScam(msg)
-        }
-    
-        if (msg.content.toLowerCase().includes("trade") && msg.content.toLowerCase().includes(".ru")) {
-            return potentialScam(msg)
-        }
-    
-        if (msg.content.toLowerCase().includes("free") && msg.content.toLowerCase().includes("case") && msg.content.toLowerCase().includes(".ru")) {
-            return potentialScam(msg)
         }
     }
 
