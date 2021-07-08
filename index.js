@@ -34,7 +34,6 @@ bot.on("guildMemberAdd", (guild, member) => {
 
 bot.on("messageCreate", (msg) => {
     function potentialScam(msg) {
-        function potentialScam(msg) {
             if (!suspicious[msg.author.id]?.vl) {
                 suspicious[msg.author.id].suspiciousMessages = [];
                 suspicious[msg.author.id].vl = 0;
@@ -93,9 +92,7 @@ bot.on("messageCreate", (msg) => {
                         }
                     })
                 }
-                
             }
-        }
     }
 
     if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes(".ru/")) {
