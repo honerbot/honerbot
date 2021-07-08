@@ -35,8 +35,10 @@ bot.on("guildMemberAdd", (guild, member) => {
 bot.on("messageCreate", (msg) => {
     function potentialScam(msg) {
             if (!suspicious[msg.author.id]?.vl) {
-                suspicious[msg.author.id].suspiciousMessages = [];
-                suspicious[msg.author.id].vl = 0;
+                suspicious[msg.author.id] = {
+                    "suspiciousMessages": [],
+                    "vl": 0
+                }
             }
             if (suspicious[msg.author.id].vl++ == 3) {
                 msg.member.addRole("753650045475356774", "Honer: Passed VL4.")
