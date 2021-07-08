@@ -10,7 +10,7 @@ const bot = new Eris.CommandClient("Bot " + process.env.token, {
 });
 
 let boostCount,
-suspicious = [];
+suspicious = {};
 
 bot.on("ready", () => {
     console.log("Ready!");
@@ -35,14 +35,21 @@ bot.on("guildMemberAdd", (guild, member) => {
 bot.on("messageCreate", (msg) => {
     function potentialScam(msg) {
         function potentialScam(msg) {
-            if (!suspicious[msg.author.id]) suspicious[msg.author.id] = 0;
-            if (suspicious[msg.author.id]++ == 3) {
-                msg.member.addRole("753650045475356774", "Passed VL4.")
+            if (!suspicious[msg.author.id].vl) {
+                suspicious[msg.author.id].suspiciousMessages = [];
+                suspicious[msg.author.id].vl = 0;
+            }
+            if (suspicious[msg.author.id].vl++ == 3) {
+                msg.member.addRole("753650045475356774", "Honer: Passed VL4.")
+                msg.author.getDMChannel().then(chan=>chan.createMessage("You were muted in Hone for sending Scam Links. Please change your password and create a ticket in <#785211122516230144> to become unmuted."))
+                suspicious[msg.author.id].suspiciousMessages.forEach(msg => {
+                    msg.delete("Honer: Scam links.")
+                })
                 return bot.createMessage("861084246487203850", {
                     "content": "||<@&862034553808093184>||", 
                     "embed": {
                         "color": 15158332,
-                        "title": "Potential scammer automuted. Please delete the scammer's past messages.",
+                        "title": "Potential scammer automuted.",
                         "fields": [{
                             "name": "User",
                             "value": `<@${msg.author.id}> (${msg.author.id})`
@@ -50,6 +57,7 @@ bot.on("messageCreate", (msg) => {
                     }
                 })
             } else {
+                suspicious[msg.author.id].suspiciousMessages.push(msg);
                 return bot.createMessage("861084246487203850", {
                     "content": "||<@&862034553808093184>||", 
                     "embed": {
