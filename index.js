@@ -46,7 +46,6 @@ bot.on("messageCreate", (msg) => {
                     msg.delete("Honer: Scam links.")
                 })
                 return bot.createMessage("861084246487203850", {
-                    "content": "||<@&862034553808093184>||", 
                     "embed": {
                         "color": 15158332,
                         "title": "Potential scammer automuted.",
@@ -58,23 +57,43 @@ bot.on("messageCreate", (msg) => {
                 })
             } else {
                 suspicious[msg.author.id].suspiciousMessages.push(msg);
-                return bot.createMessage("861084246487203850", {
-                    "content": "||<@&862034553808093184>||", 
-                    "embed": {
-                        "color": 15158332,
-                        "title": "Potential scam!",
-                        "fields": [{
-                            "name": "Message Link",
-                            "value": `[Jump!](${msg.jumpLink})`
-                        },  {
-                            "name": "User",
-                            "value": `<@${msg.author.id}> (${msg.author.id})`
-                        },  {
-                            "name": "VL",
-                            "value": suspicious[msg.author.id]
-                        }]
-                    }
-                })
+                if (suspicious[msg.author.id].vl == 1) {
+                    return bot.createMessage("861084246487203850", {
+                        "content": "||<@&862034553808093184>||", 
+                        "embed": {
+                            "color": 15158332,
+                            "title": "Potential scam!",
+                            "fields": [{
+                                "name": "Message Link",
+                                "value": `[Jump!](${msg.jumpLink})`
+                            },  {
+                                "name": "User",
+                                "value": `<@${msg.author.id}> (${msg.author.id})`
+                            },  {
+                                "name": "VL",
+                                "value": suspicious[msg.author.id]
+                            }]
+                        }
+                    })
+                } else {
+                    return bot.createMessage("861084246487203850", {
+                        "embed": {
+                            "color": 15158332,
+                            "title": "Potential scam!",
+                            "fields": [{
+                                "name": "Message Link",
+                                "value": `[Jump!](${msg.jumpLink})`
+                            },  {
+                                "name": "User",
+                                "value": `<@${msg.author.id}> (${msg.author.id})`
+                            },  {
+                                "name": "VL",
+                                "value": suspicious[msg.author.id]
+                            }]
+                        }
+                    })
+                }
+                
             }
         }
     
