@@ -35,7 +35,7 @@ bot.on("guildMemberAdd", (guild, member) => {
 bot.on("messageCreate", (msg) => {
     function potentialScam(msg) {
         function potentialScam(msg) {
-            if (!suspicious[msg.author.id].vl) {
+            if (!suspicious[msg.author.id]?.vl) {
                 suspicious[msg.author.id].suspiciousMessages = [];
                 suspicious[msg.author.id].vl = 0;
             }
