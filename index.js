@@ -34,7 +34,7 @@ bot.on("guildMemberAdd", (guild, member) => {
 
 bot.on("messageDelete", msg => {
     if (msg.author && suspicious[msg.author.id]) {
-        const index = suspicious[msg.author.id].suspiciousMessages.indexOf(msg.id);
+        const index = suspicious[msg.author.id].suspiciousMessages.indexOf(msg);
         if (index == -1) return;
         suspicious[msg.author.id].suspiciousMessages.splice(index, 1);
     }
