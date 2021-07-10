@@ -32,7 +32,15 @@ bot.on("guildMemberAdd", (guild, member) => {
     }
 })
 
-bot.on("messageCreate", (msg) => {
+bot.on("messageDelete", msg => {
+    if (msg.author && suspicious[msg.author.id]) {
+        const index = suspicious[msg.author.id].suspiciousMessages.indexOf(msg.id);
+        if (index == -1) return;
+        suspicious[msg.author.id].suspiciousMessages.splice(index, 1);
+    }
+})
+
+bot.on("messageCreate", msg => {
     function potentialScam(msg) {
             if (!suspicious[msg.author.id]?.vl) {
                 suspicious[msg.author.id] = {
