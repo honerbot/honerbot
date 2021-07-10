@@ -61,7 +61,7 @@ bot.on("messageCreate", (msg) => {
                 suspicious[msg.author.id].suspiciousMessages.push(msg);
                 if (suspicious[msg.author.id].vl == 1) {
                     return bot.createMessage("861084246487203850", {
-                        // "content": "||<@&862034553808093184>||", 
+                        "content": "||<@&862034553808093184>||", 
                         "embed": {
                             "color": 15158332,
                             "title": "Potential scam!",
@@ -98,19 +98,19 @@ bot.on("messageCreate", (msg) => {
             }
     }
 
-    if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes(".ru/")) {
+    if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes("http")) {
         return potentialScam(msg)
     }
 
-    if (msg.content.toLowerCase().includes("give") && msg.content.toLowerCase().includes(".ru/")) {
+    if (msg.content.toLowerCase().includes("give") && msg.content.toLowerCase().includes("http")) {
         return potentialScam(msg)
     }
 
-    if (msg.content.toLowerCase().includes("trade") && msg.content.toLowerCase().includes(".ru/")) {
+    if (msg.content.toLowerCase().includes("trade") && msg.content.toLowerCase().includes("http")) {
         return potentialScam(msg)
     }
 
-    if (msg.content.toLowerCase().includes("free") && msg.content.toLowerCase().includes("case") && msg.content.toLowerCase().includes(".ru/")) {
+    if (msg.content.toLowerCase().includes("free") && msg.content.toLowerCase().includes("case") && msg.content.toLowerCase().includes("http")) {
         return potentialScam(msg)
     }
 });
