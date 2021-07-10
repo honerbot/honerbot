@@ -61,7 +61,7 @@ bot.on("messageCreate", (msg) => {
                 suspicious[msg.author.id].suspiciousMessages.push(msg);
                 if (suspicious[msg.author.id].vl == 1) {
                     return bot.createMessage("861084246487203850", {
-                        "content": "||<@&862034553808093184>||", 
+                        // "content": "||<@&862034553808093184>||", 
                         "embed": {
                             "color": 15158332,
                             "title": "Potential scam!",
