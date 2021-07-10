@@ -43,9 +43,9 @@ bot.on("messageCreate", (msg) => {
             if (suspicious[msg.author.id].vl++ == 3) {
                 msg.member.addRole("753650045475356774", "Honer: Passed VL4.")
                 msg.author.getDMChannel().then(chan=>chan.createMessage("You were muted in Hone for sending Scam Links. Please change your password and create a ticket in <#785211122516230144> to become unmuted."))
-                msg.delete();
+                msg.delete().catch();
                 suspicious[msg.author.id].suspiciousMessages.forEach(msg => {
-                    msg.delete("Honer: Scam links.")
+                    msg.delete("Honer: Scam links.").catch()
                 })
                 return bot.createMessage("861084246487203850", {
                     "embed": {
