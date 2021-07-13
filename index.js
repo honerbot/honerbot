@@ -25,12 +25,12 @@ bot.on("error", (err) => {
     console.error(err);
 });
 
-bot.on("guildMemberAdd", (guild, member) => {
-    if (member.username.includes("gg/motion")) {
-        member.ban(0, "Honer: MOTION BOT")
-        return bot.createMessage("861084246487203850", `${member.mention} (${member.id}) was banned.`)
-    }
-})
+// bot.on("guildMemberAdd", (guild, member) => {
+//     if (member.username.includes("gg/motion")) {
+//         member.ban(0, "Honer: MOTION BOT")
+//         return bot.createMessage("861084246487203850", `${member.mention} (${member.id}) was banned.`)
+//     }
+// })
 
 bot.on("messageDelete", msg => {
     if (msg.author && suspicious[msg.author.id]) {
