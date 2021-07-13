@@ -281,7 +281,7 @@ bot.on("guildMemberUpdate", (guild, member, oldMember) => {
     }
     if (boostCount < guild.premiumSubscriptionCount) {
         if (member?.roles.find(role => role == "754798744406458459") && !oldMember?.roles.find(role => role == "754798744406458459")) bot.createMessage("861084246487203850", `<@${member.id}> has **boosted** the server! The current boost count is now **${guild.premiumSubscriptionCount}**.`)
-        if (member?.roles.find(role => role == "754798744406458459") && oldMember?.roles.find(role => role == "754798744406458459")) bot.createMessage("861084246487203850", `<@${member.id}> has **boosted** the server again! The current boost count is now **${guild.premiumSubscriptionCount}**.`)
+        if (member?.roles.find(role => role == "754798744406458459") && member?.premiumSince > oldMember?.premiumSince) bot.createMessage("861084246487203850", `<@${member.id}> has **boosted** the server again! The current boost count is now **${guild.premiumSubscriptionCount}**.`)
         return boostCount = guild.premiumSubscriptionCount;
     }
 })
