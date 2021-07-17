@@ -15,8 +15,10 @@ module.exports = {
     const embed = new MessageEmbed();
     if (args.length < 1)
       return message.reply("I require two arguments not one.");
-    let user = await message.guild.members.fetch(args[0]);
-    if (!user) {
+    try {
+      let user = await message.guild.members.fetch(args[0]);
+      message.channel.send(assignRole(user, message, args[1], embed));
+    } catch (e) {
       embed.setColor("#ff6961");
       embed.setDescription(":x: I couldn't seem to find that user!");
       embed.footer(
@@ -26,6 +28,5 @@ module.exports = {
       embed.setTimestamp();
       return message.channel.send(embed);
     }
-    message.channel.send(assignRole(user, message, args[1], embed));
   },
 };
