@@ -41,7 +41,7 @@ bot.on("messageDelete", msg => {
 })
 
 bot.on("messageCreate", msg => {
-    if (msg.mentions) {
+    if (msg.mentions.length == 0) {
         if (msg.member?.roles.indexOf("762758600338309172") != -1) return;
         let IDs = [];
         msg.mentions.forEach(user => IDs.push(user.id))
