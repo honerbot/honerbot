@@ -41,7 +41,41 @@ bot.on("messageDelete", msg => {
 })
 
 bot.on("messageCreate", msg => {
-    // blah blah stuff here
+    if (msg.mentions) {
+        if (msg.member.roles.indexOf("762758600338309172") != -1) return;
+        let IDs = [];
+        msg.mentions.forEach(user => IDs.push(user.id))
+        msg.channel.guild.fetchMembers({
+            userIDs: IDs
+        }).then(members => {
+            members.forEach(member => {
+                if (member.roles.indexOf("793425429147025439") != -1) {
+                    msg.delete()
+                    return msg.channel.createMessage("Please do not ping Hone Admins and above.").then(msg=>setTimeout(()=>msg.delete(), 5000))
+                }
+                if (member.roles.indexOf("773841259105222687") != -1) {
+                    msg.delete()
+                    return msg.channel.createMessage("Please do not ping Hone Admins and above.").then(msg=>setTimeout(()=>msg.delete(), 5000))
+                }
+                if (member.roles.indexOf("856686649823330375") != -1) {
+                    msg.delete()
+                    return msg.channel.createMessage("Please do not ping Hone Admins and above.").then(msg=>setTimeout(()=>msg.delete(), 5000))
+                }
+                if (member.roles.indexOf("793508240381575181") != -1) {
+                    msg.delete()
+                    return msg.channel.createMessage("Please do not ping Hone Admins and above.").then(msg=>setTimeout(()=>msg.delete(), 5000))
+                }
+                if (member.roles.indexOf("849535394017181716") != -1) {
+                    msg.delete()
+                    return msg.channel.createMessage("Please do not ping Hone Admins and above.").then(msg=>setTimeout(()=>msg.delete(), 5000))
+                }
+                if (member.roles.indexOf("783059857955618866") != -1) {
+                    msg.delete()
+                    return msg.channel.createMessage("Please do not ping Hone Admins and above.").then(msg=>setTimeout(()=>msg.delete(), 5000))
+                }
+            })
+        })
+    }
 
     async function potentialScam(msg) {
             if (!suspicious[msg.author.id]?.vl) {
