@@ -128,7 +128,7 @@ bot.on("messageCreate", msg => {
         return potentialScam(msg)
     }
 
-    if (msg.content.toLowerCase().includes("summer") && msg.content.toLowerCase().includes("code") && msg.content.toLowerCase().includes("http")) {
+    if (msg.content.toLowerCase().includes("summer") && msg.content.toLowerCase().includes("steam") && msg.content.toLowerCase().includes("http")) {
         return potentialScam(msg)
     }
 
