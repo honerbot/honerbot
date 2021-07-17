@@ -1,10 +1,9 @@
 const { Client, Message, MessageEmbed } = require("discord.js");
-const { roles, commandChannel } = require("../config/config.json");
-const { assignRole } = require("../utils/assignRole");
+const { removeRole } = require("../utils/removeRole");
 
 module.exports = {
-  name: "assignrole",
-  aliases: ["ar", "giverole"],
+  name: "removerole",
+  aliases: ["rr"],
   /**
    *
    * @param {Client} client
@@ -17,7 +16,7 @@ module.exports = {
       return message.reply("I require two arguments not one.");
     try {
       let user = await message.guild.members.fetch(args[0]);
-      return message.channel.send(assignRole(user, message, args[1], embed));
+      return message.channel.send(removeRole(user, message, args[1], embed));
     } catch (e) {
       console.log(e);
       embed.setColor("#ff6961");
