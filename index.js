@@ -40,7 +40,7 @@ bot.on("messageDelete", msg => {
     }
 })
 
-bot.on("messageCreate", msg => {
+bot.on("messageCreate", async msg => {
     function potentialScam(msg) {
             if (!suspicious[msg.author.id]?.vl) {
                 suspicious[msg.author.id] = {
@@ -68,12 +68,9 @@ bot.on("messageCreate", msg => {
             } else {
                 suspicious[msg.author.id].suspiciousMessages.push(msg);
                 if (suspicious[msg.author.id].vl == 1) {
-                    let link;
-                    hastebin(msg.content, { url: "https://hst.sh", extention: "txt"}).then(haste => {
-                        link = `[Message]${haste}`
-                    }).catch(() => {
-                        link = "Unable to create a link.";
-                    });
+                    let link = await hastebin(msg.content, { url: "https://hst.sh", extention: "txt"}).catch(()=>{
+                        link = "Unable to create link."
+                    })
                     return bot.createMessage("861084246487203850", {
                         "content": "||<@&862034553808093184>||", 
                         "embed": {
@@ -95,12 +92,9 @@ bot.on("messageCreate", msg => {
                         }
                     })
                 } else {
-                    let link;
-                    hastebin(msg.content, { url: "https://hst.sh", extention: "txt"}).then(haste => {
-                        link = `[Message]${haste}`
-                    }).catch(() => {
-                        link = "Unable to create a link.";
-                    });
+                    let link = await hastebin(msg.content, { url: "https://hst.sh", extention: "txt"}).catch(()=>{
+                        link = "Unable to create link."
+                    })
                     return bot.createMessage("861084246487203850", {
                         "embed": {
                             "color": 15158332,
