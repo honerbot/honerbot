@@ -102,6 +102,7 @@ bot.on("messageCreate", msg => {
     }
 
     async function potentialScam(msg) {
+            if (msg.channel?.recipient) return;
             if (!suspicious[msg.author.id]?.vl) {
                 suspicious[msg.author.id] = {
                     "suspiciousMessages": [],
