@@ -110,6 +110,10 @@ bot.on("messageCreate", msg => {
         return potentialScam(msg)
     }
 
+    if (msg.content.toLowerCase().includes("skin") && msg.content.toLowerCase().includes("gift") && msg.content.toLowerCase().includes("http")) {
+        return potentialScam(msg)
+    }
+
     if (msg.content.toLowerCase().includes("give") && msg.content.toLowerCase().includes("http")) {
         return potentialScam(msg)
     }
