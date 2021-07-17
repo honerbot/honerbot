@@ -41,6 +41,8 @@ bot.on("messageDelete", msg => {
 })
 
 bot.on("messageCreate", msg => {
+    // blah blah stuff here
+
     async function potentialScam(msg) {
             if (!suspicious[msg.author.id]?.vl) {
                 suspicious[msg.author.id] = {
