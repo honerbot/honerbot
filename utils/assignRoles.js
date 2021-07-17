@@ -22,7 +22,8 @@ function assignRole(user, message, role, embed) {
     embed.setTimestamp();
     return embed;
   }
-  user.roles.add(roleID);
+  let r = message.guild.roles.cache.get(roleID);
+  user.roles.add(r);
   embed.setColor("#77DD77");
   embed.setDescription(
     `<a:YES:807751359881281576> I gave ${user.user.tag} the role ${args[0]}`
