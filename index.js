@@ -151,7 +151,7 @@ bot.registerCommand("assignrole", (msg, args) => {
     msg.channel.guild.fetchMembers({
         userIDs: args[0]
     }).then(user => {
-        if (!users.length) {
+        if (!user.length) {
             return msg.channel.createMessage({
                 "embed": {
                     "description": `:x: Couldn't find that user!`
