@@ -19,6 +19,7 @@ module.exports = {
       let user = await message.guild.members.fetch(args[0]);
       return message.channel.send(assignRole(user, message, args[1], embed));
     } catch (e) {
+      console.log(e);
       embed.setColor("#ff6961");
       embed.setDescription(":x: I couldn't seem to find that user!");
       embed.setFooter(
