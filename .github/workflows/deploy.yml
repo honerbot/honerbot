@@ -16,5 +16,5 @@ jobs:
      
           script: |
             cd honetests 
-            git pull origin Recode git@github.com:honerbot/honerbot.git 
+            git pull git@github.com:honerbot/honerbot.git Recode
             echo 'Deployment successful!' 
