@@ -26,7 +26,9 @@ function removeRole(user, message, role, embed) {
     let r = message.guild.roles.cache.get(roleID);
     user.roles.remove(r);
     embed.setColor("#77DD77");
-    embed.setDescription(`✅ I removed <@${user.user.id}> the role ${r.name}`);
+    embed.setDescription(
+      `✅ I removed <@${user.user.id}> the role \`${r.name}\``
+    );
     embed.setFooter(
       message.author.tag,
       message.author.avatarURL({ dynamic: true, format: "png" })
