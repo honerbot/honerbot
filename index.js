@@ -163,6 +163,7 @@ bot.registerCommand("assignrole", (msg, args) => {
             })
         }
         user[0].addRole(roles[args[1]], `The ${args[1]} role was assigned by ${msg.author.username}#${msg.author.discriminator} (${msg.author.id}).`)
+        msg.channel.createMessage("The role was successfully assigned!")
         bot.createMessage("861084246487203850", `The ${args[1]} role was assigned by ${msg.author.username}#${msg.author.discriminator} (${msg.author.id}) to ${user[0].username}#${user[0].discriminator} (${user[0].id}).`)
     })
 })
