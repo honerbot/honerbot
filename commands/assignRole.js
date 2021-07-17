@@ -12,7 +12,6 @@ module.exports = {
    * @param {String[]} args
    */
   async execute(client, message, args) {
-    message.reply("hi");
     const embed = new MessageEmbed();
     if (message.channel.id != commandChannel) return;
     if (args.length < 1)
