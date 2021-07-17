@@ -10,7 +10,7 @@ const { roles } = require("../config/config.json");
  */
 function assignRole(user, message, role, embed) {
   let roleID = roles[role];
-  if (!roleID) {
+  if (roleID === undefined) {
     embed.setColor("#ff6961");
     embed.setDescription(
       ":x: That role doesn't seem like something I can give."
