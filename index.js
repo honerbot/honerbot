@@ -1,13 +1,13 @@
 require("dotenv").config();
-const Eris = require("eris");
-
+const Eris = require("eris"),
 const bot = new Eris.CommandClient("Bot " + process.env.token, {
     restMode: true
 }, {
     description: "Making life easier for Hone staff.",
     owner: "lemons",
     prefix: [process.env.prefix, "@mention "]
-});
+}),
+hastebin = require("hastebin-paste");
 
 let boostCount,
 suspicious = {};
@@ -68,6 +68,12 @@ bot.on("messageCreate", msg => {
             } else {
                 suspicious[msg.author.id].suspiciousMessages.push(msg);
                 if (suspicious[msg.author.id].vl == 1) {
+                    let link;
+                    hastebin(msg.content, { url: "https://hst.sh", extention: "txt"}).then(haste => {
+                        link = `[Message]${haste}`
+                    }).catch(() => {
+                        link = "Unable to create a link.";
+                    });
                     return bot.createMessage("861084246487203850", {
                         "content": "||<@&862034553808093184>||", 
                         "embed": {
@@ -76,6 +82,9 @@ bot.on("messageCreate", msg => {
                             "fields": [{
                                 "name": "Message Link",
                                 "value": `[Jump!](${msg.jumpLink})`
+                            },  {
+                                "name": "Message",
+                                "value": link
                             },  {
                                 "name": "User",
                                 "value": `<@${msg.author.id}> (${msg.author.id})`
@@ -86,6 +95,12 @@ bot.on("messageCreate", msg => {
                         }
                     })
                 } else {
+                    let link;
+                    hastebin(msg.content, { url: "https://hst.sh", extention: "txt"}).then(haste => {
+                        link = `[Message]${haste}`
+                    }).catch(() => {
+                        link = "Unable to create a link.";
+                    });
                     return bot.createMessage("861084246487203850", {
                         "embed": {
                             "color": 15158332,
@@ -93,6 +108,9 @@ bot.on("messageCreate", msg => {
                             "fields": [{
                                 "name": "Message Link",
                                 "value": `[Jump!](${msg.jumpLink})`
+                            },  {
+                                "name": "Message",
+                                "value": link
                             },  {
                                 "name": "User",
                                 "value": `<@${msg.author.id}> (${msg.author.id})`

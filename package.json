@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "eris": "^0.15.1"
+    "eris": "^0.15.1",
+    "hastebin-paste": "^1.3.1"
   }
 }
