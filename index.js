@@ -41,6 +41,30 @@ bot.on("messageDelete", msg => {
 })
 
 bot.on("messageCreate", msg => {
+    if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes("http")) {
+        return potentialScam(msg)
+    }
+
+    if (msg.content.toLowerCase().includes("skin") && msg.content.toLowerCase().includes("gift") && msg.content.toLowerCase().includes("http")) {
+        return potentialScam(msg)
+    }
+
+    if (msg.content.toLowerCase().includes("summer") && msg.content.toLowerCase().includes("steam") && msg.content.toLowerCase().includes("http")) {
+        return potentialScam(msg)
+    }
+
+    if (msg.content.toLowerCase().includes("give") && msg.content.toLowerCase().includes("http")) {
+        return potentialScam(msg)
+    }
+
+    if (msg.content.toLowerCase().includes("trade") && msg.content.toLowerCase().includes("http")) {
+        return potentialScam(msg)
+    }
+
+    if (msg.content.toLowerCase().includes("free") && msg.content.toLowerCase().includes("case") && msg.content.toLowerCase().includes("http")) {
+        return potentialScam(msg)
+    }
+
     if (msg.mentions.length != 0) {
         if (msg.member?.roles.indexOf("762758600338309172") != -1) return;
         let IDs = [];
@@ -152,30 +176,6 @@ bot.on("messageCreate", msg => {
                     })
                 }
             }
-    }
-
-    if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes("http")) {
-        return potentialScam(msg)
-    }
-
-    if (msg.content.toLowerCase().includes("skin") && msg.content.toLowerCase().includes("gift") && msg.content.toLowerCase().includes("http")) {
-        return potentialScam(msg)
-    }
-
-    if (msg.content.toLowerCase().includes("summer") && msg.content.toLowerCase().includes("steam") && msg.content.toLowerCase().includes("http")) {
-        return potentialScam(msg)
-    }
-
-    if (msg.content.toLowerCase().includes("give") && msg.content.toLowerCase().includes("http")) {
-        return potentialScam(msg)
-    }
-
-    if (msg.content.toLowerCase().includes("trade") && msg.content.toLowerCase().includes("http")) {
-        return potentialScam(msg)
-    }
-
-    if (msg.content.toLowerCase().includes("free") && msg.content.toLowerCase().includes("case") && msg.content.toLowerCase().includes("http")) {
-        return potentialScam(msg)
     }
 });
 
