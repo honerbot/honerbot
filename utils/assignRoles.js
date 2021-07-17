@@ -25,9 +25,7 @@ function assignRole(user, message, role, embed) {
   let r = message.guild.roles.cache.get(roleID);
   user.roles.add(r);
   embed.setColor("#77DD77");
-  embed.setDescription(
-    `<a:YES:807751359881281576> I gave ${user.user.tag} the role ${r.name}`
-  );
+  embed.setDescription(`✅ I gave <@${user.user.id}> the role ${r.name}`);
   embed.setFooter(
     message.author.tag,
     message.author.avatarURL({ dynamic: true, format: "png" })
