@@ -68,7 +68,7 @@ bot.on("messageCreate", msg => {
             } else {
                 suspicious[msg.author.id].suspiciousMessages.push(msg);
                 if (suspicious[msg.author.id].vl == 1) {
-                    let link = await hastebin(msg.content, { url: "https://hst.sh", extention: "txt"}).catch(()=>{
+                    let link = await hastebin(msg.content, { url: "https://hst.sh", extention: "txt", message: "", prefix: ""}).catch(()=>{
                         link = "Unable to create link."
                     })
                     return bot.createMessage("861084246487203850", {
@@ -92,7 +92,7 @@ bot.on("messageCreate", msg => {
                         }
                     })
                 } else {
-                    let link = await hastebin(msg.content, { url: "https://hst.sh", extention: "txt"}).catch(()=>{
+                    let link = await hastebin(msg.content, { url: "https://hst.sh", extention: "txt", message: "", prefix: ""}).catch(()=>{
                         link = "Unable to create link."
                     })
                     return bot.createMessage("861084246487203850", {
