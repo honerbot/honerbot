@@ -13,7 +13,6 @@ module.exports = {
    */
   async execute(client, message, args) {
     const embed = new MessageEmbed();
-    if (message.channel.id != commandChannel) return;
     if (args.length < 1)
       return message.reply("I require two arguments not one.");
     let user = await message.guild.members.fetch(args[0]);
