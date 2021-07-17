@@ -17,7 +17,7 @@ module.exports = {
       return message.reply("I require two arguments not one.");
     try {
       let user = await message.guild.members.fetch(args[0]);
-      message.channel.send(assignRole(user, message, args[1], embed));
+      return message.channel.send(assignRole(user, message, args[1], embed));
     } catch (e) {
       embed.setColor("#ff6961");
       embed.setDescription(":x: I couldn't seem to find that user!");
