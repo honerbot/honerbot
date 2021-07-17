@@ -141,6 +141,28 @@ bot.on("messageCreate", msg => {
     }
 });
 
+bot.registerCommand("assignrole", (msg, args) => {
+    let roles = {"optimizer": "794932986956611597", "vip": "794984057666011157", "mvp": "794984199680425995", "pro": "794984234024435754"}
+
+    if (msg.channel.id != "772869010319998997") return;
+    if (args.length == 0) return msg.channel.createMessage("You need to provide an ID and a role!\nAvailable roles: Optimizer, VIP, MVP, Pro");
+    if (!roles[args[1].toLowerCase()]) return msg.channel.createMessage("You need to provide a role!")
+    
+    msg.channel.guild.fetchMembers({
+        userIDs: args[0]
+    }).then(user => {
+        if (!users.length) {
+            return msg.channel.createMessage({
+                "embed": {
+                    "description": `:x: Couldn't find that user!`
+                }
+            })
+        }
+        user.addRole(roles[args[1]], `The ${args[1]} role was assigned by ${msg.author.username}#${msg.author.discriminator} (${msg.author.id}).`)
+        bot.createMessage(`The ${args[1]} role was assigned by ${msg.author.username}#${msg.author.discriminator} (${msg.author.id}).`)
+    })
+})
+
 bot.registerCommand("gwhois", (msg, args) => {
     if (msg.channel.id != "772869010319998997") return;
     if (args.length == 0) {
