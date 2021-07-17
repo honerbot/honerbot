@@ -21,7 +21,7 @@ module.exports = {
     } catch (e) {
       embed.setColor("#ff6961");
       embed.setDescription(":x: I couldn't seem to find that user!");
-      embed.footer(
+      embed.setFooter(
         message.author.tag,
         message.author.avatarURL({ dynamic: true, format: "png" })
       );
