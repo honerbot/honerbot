@@ -26,7 +26,7 @@ function assignRole(user, message, role, embed) {
   user.roles.add(r);
   embed.setColor("#77DD77");
   embed.setDescription(
-    `<a:YES:807751359881281576> I gave ${user.user.tag} the role ${args[0]}`
+    `<a:YES:807751359881281576> I gave ${user.user.tag} the role ${r.name}`
   );
   embed.setFooter(
     message.author.tag,
