@@ -182,6 +182,7 @@ bot.on("messageCreate", msg => {
 });
 
 bot.registerCommand("removerole", (msg, args) => {
+    if (msg.member?.roles.indexOf("762758600338309172") == -1) return;
     let roles = {"optimizer": "794932986956611597", "vip": "794984057666011157", "mvp": "794984199680425995", "pro": "794984234024435754"}
 
     if (msg.channel.id != "772869010319998997") return;
@@ -209,6 +210,7 @@ bot.registerCommand("removerole", (msg, args) => {
 })
 
 bot.registerCommand("assignrole", (msg, args) => {
+    if (msg.member?.roles.indexOf("762758600338309172") == -1) return;
     let roles = {"optimizer": "794932986956611597", "vip": "794984057666011157", "mvp": "794984199680425995", "pro": "794984234024435754"}
 
     if (msg.channel.id != "772869010319998997") return;
