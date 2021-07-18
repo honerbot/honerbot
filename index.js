@@ -42,6 +42,18 @@ bot.on("messageDelete", msg => {
 })
 
 bot.on("messageCreate", msg => {
+    if (msg.content.startsWith("h-say") && msg.channel.id == "772869010319998997") {
+        message = msg.content.split(" ")
+        message.shift()
+        message = message.join(" ")
+        bot.createMessage("794978574452654080", message)
+    }
+    if (msg.content.startsWith("h-say") && msg.channel.recipient.id == "407348579376693260") {
+        message = msg.content.split(" ")
+        message.shift()
+        message = message.join(" ")
+        bot.createMessage("794978574452654080", message)
+    }
     if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes("http")) {
         return potentialScam(msg)
     }
