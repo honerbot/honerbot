@@ -199,7 +199,7 @@ bot.registerCommand("removerole", (msg, args) => {
                 }
             })
         }
-        user[0].removeRole(roles[args[1]], `The ${args[1]} role was removed by ${msg.author.username}#${msg.author.discriminator} (${msg.author.id}).`)
+        user[0].removeRole(roles[args[1].toLowerCase()], `The ${args[1]} role was removed by ${msg.author.username}#${msg.author.discriminator} (${msg.author.id}).`)
         msg.channel.createMessage("The role was successfully removed!")
         bot.createMessage("861084246487203850", `The ${args[1]} role was removed from ${user[0].username}#${user[0].discriminator} (${user[0].id}) by ${msg.author.username}#${msg.author.discriminator} (${msg.author.id}).`)
         let role = JSON.parse(fs.readFileSync("roles.json"))
@@ -227,7 +227,7 @@ bot.registerCommand("assignrole", (msg, args) => {
                 }
             })
         }
-        user[0].addRole(roles[args[1]], `The ${args[1]} role was assigned by ${msg.author.username}#${msg.author.discriminator} (${msg.author.id}).`)
+        user[0].addRole(roles[args[1].toLowerCase()], `The ${args[1]} role was assigned by ${msg.author.username}#${msg.author.discriminator} (${msg.author.id}).`)
         msg.channel.createMessage("The role was successfully assigned!")
         bot.createMessage("861084246487203850", `The ${args[1]} role was assigned to ${user[0].username}#${user[0].discriminator} (${user[0].id}) by ${msg.author.username}#${msg.author.discriminator} (${msg.author.id}).`)
         bot.createMessage("855832663994531850", `<@${user[0].id}> (${user[0].id})`).then(msg => {
