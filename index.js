@@ -80,6 +80,7 @@ bot.on("messageCreate", msg => {
 
     if (msg.mentions.length != 0) {
         if (msg.member?.roles.indexOf("762758600338309172") != -1) return;
+        if (msg?.messageReference) return;
         let IDs = [];
         msg.mentions.forEach(user => IDs.push(user.id))
         msg.channel.guild.fetchMembers({
