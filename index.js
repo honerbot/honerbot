@@ -217,6 +217,7 @@ bot.registerCommand("scaninvites", (msg, args) => {
                 "Authorization": "Bearer " + process.env.inviteToken
             }
         }).then(r=>r.json()).then(j=>{
+            console.log(j)
             let invites = j.data.regular - j.data.leaves - j.data.fake
 
             // removing roles
