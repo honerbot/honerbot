@@ -217,41 +217,40 @@ bot.registerCommand("scaninvites", (msg, args) => {
                 "Authorization": "Bearer " + process.env.inviteToken
             }
         }).then(r=>r.json()).then(j=>{
-            console.log(j)
-            let invites = j.data.regular - j.data.leaves - j.data.fake
+            let invites = j.data.invites
 
             // removing roles
-            if (invites > 20 && users[0].roles.includes(roles["optimizer"])) {
+            if (invites < 20 && users[0].roles.includes(roles["optimizer"])) {
                 users[0].removeRole(roles["optimizer"], "HONER BOT: Has went below 20 invites.");
                 bot.createMessage("861084246487203850", `${users[0].username}#${users[0].discriminator}'s Optimizer role has been removed automatically for being below 20 invites.`)
             }
-            if (invites > 50 && users[0].roles.includes(roles["vip"])) {
+            if (invites < 50 && users[0].roles.includes(roles["vip"])) {
                 users[0].removeRole(roles["vip"], "HONER BOT: Has went below 50 invites.")
                 bot.createMessage("861084246487203850", `${users[0].username}#${users[0].discriminator}'s VIP role has been removed automatically for being below 50 invites.`)
             }
-            if (invites > 75 && users[0].roles.includes(roles["mvp"])) {
+            if (invites < 75 && users[0].roles.includes(roles["mvp"])) {
                 users[0].removeRole(roles["mvp"], "HONER BOT: Has went below 75 invites.")
                 bot.createMessage("861084246487203850", `${users[0].username}#${users[0].discriminator}'s MVP role has been removed automatically for being below 75 invites.`)
             }
-            if (invites > 150 && users[0].roles.includes(roles["pro"])) {
+            if (invites < 150 && users[0].roles.includes(roles["pro"])) {
                 users[0].removeRole(roles["pro"], "HONER BOT: Has went below 150 invites.")
                 bot.createMessage("861084246487203850", `${users[0].username}#${users[0].discriminator}'s Pro role has been removed automatically for being below 150 invites.`)
             }
 
             // adding roles
-            if (invites <= 20 && !users[0].roles.includes(roles["optimizer"])) {
+            if (invites >= 20 && !users[0].roles.includes(roles["optimizer"])) {
                 users[0].addRole(roles["optimizer"], "HONER BOT: Has went above or equal to 20 invites.");
                 bot.createMessage("861084246487203850", `${users[0].username}#${users[0].discriminator}'s Optimizer role has been added automatically for being above or equal to 20 invites.`)
             }
-            if (invites <= 50 && !users[0].roles.includes(roles["vip"])) {
+            if (invites >= 50 && !users[0].roles.includes(roles["vip"])) {
                 users[0].addRole(roles["vip"], "HONER BOT: Has went above or equal to 50 invites.")
                 bot.createMessage("861084246487203850", `${users[0].username}#${users[0].discriminator}'s VIP role has been added automatically for being above or equal to 50 invites.`)
             }
-            if (invites <= 75 && !users[0].roles.includes(roles["mvp"])) {
+            if (invites >= 75 && !users[0].roles.includes(roles["mvp"])) {
                 users[0].addRole(roles["mvp"], "HONER BOT: Has went above or equal to 75 invites.")
                 bot.createMessage("861084246487203850", `${users[0].username}#${users[0].discriminator}'s MVP role has been added automatically for being above or equal to 75 invites.`)
             }
-            if (invites <= 150 && !users[0].roles.includes(roles["pro"])) {
+            if (invites >= 150 && !users[0].roles.includes(roles["pro"])) {
                 users[0].addRole(roles["pro"], "HONER BOT: Has went above or equal to 150 invites.")
                 bot.createMessage("861084246487203850", `${users[0].username}#${users[0].discriminator}'s Pro role has been added automatically for being above or equal to 150 invites.`)
             }
