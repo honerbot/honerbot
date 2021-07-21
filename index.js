@@ -86,6 +86,10 @@ bot.on("messageCreate", msg => {
         return potentialScam(msg)
     }
 
+    if (msg.content.toLowerCase().includes("steam") && msg.content.toLowerCase().includes("dis")) {
+        return potentialScam(msg)
+    }
+
     if (msg.mentions.length != 0) {
         if (msg.member?.roles.indexOf("762758600338309172") != -1) return;
         if (msg?.messageReference) return;
