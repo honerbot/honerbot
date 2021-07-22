@@ -231,7 +231,7 @@ bot.registerCommand("scaninvites", (msg, args) => {
             }
         }).then(r=>r.json()).then(j=>{
             let invites = j.data.invites,
-            role = [];
+            role = ["+ [ changelog ]", " "];
             
             // removing roles
             if (invites < 20 && users[0].roles.includes(roles["optimizer"])) {
