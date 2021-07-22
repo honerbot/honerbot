@@ -269,8 +269,8 @@ bot.registerCommand("scaninvites", (msg, args) => {
                 users[0].addRole(roles["pro"], "HONER BOT: Has went above or equal to 150 invites.")
             }
 
-            bot.createMessage("861084246487203850", users[0].mention+"'s new roles!\n```diff\n"+roles.split("\n")+"```")
-            msg.channel.createMessage(users[0].mention+"'s new roles!\n```diff\n"+roles.split("\n")+"```")
+            bot.createMessage("861084246487203850", users[0].mention+"'s new roles!\n```diff\n"+roles.join("\n")+"```")
+            msg.channel.createMessage(users[0].mention+"'s new roles!\n```diff\n"+roles.join("\n")+"```")
         })
     })
 })
