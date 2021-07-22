@@ -231,7 +231,7 @@ bot.registerCommand("scaninvites", (msg, args) => {
             }
         }).then(r=>r.json()).then(j=>{
             let invites = j.data.invites,
-            role = ["+ [ changelog ]", " "];
+            role = [];
             
             // removing roles
             if (invites < 20 && users[0].roles.includes(roles["optimizer"])) {
@@ -268,6 +268,8 @@ bot.registerCommand("scaninvites", (msg, args) => {
                 role.push("+ [ pro ]")
                 users[0].addRole(roles["pro"], "HONER BOT: Has went above or equal to 150 invites.")
             }
+
+            if (!role[0]) return;
 
             bot.createMessage("861084246487203850", users[0].mention+"'s new roles!\n```diff\n"+role.join("\n")+"```")
             msg.channel.createMessage(users[0].mention+"'s new roles!\n```diff\n"+role.join("\n")+"```")
