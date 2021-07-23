@@ -277,23 +277,12 @@ bot.registerCommand("scaninvites", (msg, args) => {
     })
 })
 
-bot.registerCommand("giveawayrole", (msg, args) => {
+bot.registerCommand("ungiftedrole", (msg, args) => {
     if (msg.channel.id != "772869010319998997") return;
     msg.channel.guild.fetchMembers({
         userIDs: args[0]
     }).then(users => {
-        users[0].addRole("798996721501732944", "HONER BOT: Assigned Hone Optimizer Winner role!")
-        bot.createMessage("861084246487203850", "Assigned Hone Optimizer Winner role to "+users[0].mention)
-        msg.channel.createMessage("Assigned Hone Optimizer Winner role to "+users[0].mention)
-    })
-})
-
-bot.registerCommand("ungiveawayrole", (msg, args) => {
-    if (msg.channel.id != "772869010319998997") return;
-    msg.channel.guild.fetchMembers({
-        userIDs: args[0]
-    }).then(users => {
-        users[0].addRole("799310303933759513", "HONER BOT: Assigned Hone Optimizer Winner role!")
+        users[0].removeRole("799310303933759513", "HONER BOT: Assigned Hone Optimizer Winner role!")
         bot.createMessage("861084246487203850", "Assigned Hone Optimizer Winner role to "+users[0].mention)
         msg.channel.createMessage("Assigned Hone Optimizer Winner role to "+users[0].mention)
     })
