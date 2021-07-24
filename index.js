@@ -45,18 +45,18 @@ bot.on("messageDelete", msg => {
 })
 
 bot.on("messageCreate", msg => {
-    if (msg.content.startsWith("h-say") && msg.channel.id == "772869010319998997") {
-        message = msg.content.split(" ")
-        message.shift()
-        message = message.join(" ")
-        bot.createMessage("794978574452654080", message)
-    }
-    if (msg.content.startsWith("h-say") && msg.channel.recipient.id == "407348579376693260") {
-        message = msg.content.split(" ")
-        message.shift()
-        message = message.join(" ")
-        bot.createMessage("794978574452654080", message)
-    }
+    // if (msg.content.startsWith("h-say") && msg.channel.id == "772869010319998997") {
+    //     message = msg.content.split(" ")
+    //     message.shift()
+    //     message = message.join(" ")
+    //     bot.createMessage("794978574452654080", message)
+    // }
+    // if (msg.content.startsWith("h-say") && msg.channel.recipient.id == "407348579376693260") {
+    //     message = msg.content.split(" ")
+    //     message.shift()
+    //     message = message.join(" ")
+    //     bot.createMessage("794978574452654080", message)
+    // }
 
     if (msg.content.toLowerCase().includes("skins") && msg.content.toLowerCase().includes("http")) {
         return potentialScam(msg)
@@ -212,7 +212,6 @@ bot.on("messageCreate", msg => {
 
 bot.registerCommand("scaninvites", (msg, args) => {
     if (msg.member?.roles.indexOf("762758600338309172") == -1) return;
-    if (msg.channel.id != "772869010319998997") return;
     if (args.length == 0) return msg.channel.createMessage("You need to provide an ID!");
 
     msg.channel.guild.fetchMembers({
@@ -274,17 +273,6 @@ bot.registerCommand("scaninvites", (msg, args) => {
             bot.createMessage("861084246487203850", users[0].mention+"'s new roles!\n```diff\n"+role.join("\n")+"```")
             msg.channel.createMessage(users[0].mention+"'s new roles!\n```diff\n"+role.join("\n")+"```")
         })
-    })
-})
-
-bot.registerCommand("ungiftedrole", (msg, args) => {
-    if (msg.channel.id != "772869010319998997") return;
-    msg.channel.guild.fetchMembers({
-        userIDs: args[0]
-    }).then(users => {
-        users[0].removeRole("799310303933759513", "HONER BOT: Assigned Hone Optimizer Winner role!")
-        bot.createMessage("861084246487203850", "Assigned Hone Optimizer Winner role to "+users[0].mention)
-        msg.channel.createMessage("Assigned Hone Optimizer Winner role to "+users[0].mention)
     })
 })
 
