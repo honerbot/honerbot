@@ -268,7 +268,7 @@ bot.registerCommand("scaninvites", (msg, args) => {
                 users[0].addRole(roles["pro"], "HONER BOT: Has went above or equal to 150 invites.")
             }
 
-            if (!role[0]) return;
+            if (!role[0]) return msg.channel.createMessage("No roles have been modified.");
 
             bot.createMessage("861084246487203850", users[0].mention+"'s new roles!\n```diff\n"+role.join("\n")+"```")
             msg.channel.createMessage(users[0].mention+"'s new roles!\n```diff\n"+role.join("\n")+"```")
