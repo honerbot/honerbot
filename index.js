@@ -105,26 +105,32 @@ bot.on("messageCreate", msg => {
             members.forEach(member => {
                 if (member.roles.indexOf("793425429147025439") != -1) {
                     msg.delete()
+                    bot.createMessage("861084246487203850", member.mention + " was pinged by "+msg.member.mention+".")
                     return msg.channel.createMessage("Please do not ping Hone Admins and above.").then(msg=>setTimeout(()=>msg.delete(), 5000))
                 }
                 if (member.roles.indexOf("773841259105222687") != -1) {
                     msg.delete()
+                    bot.createMessage("861084246487203850", member.mention + " was pinged by "+msg.member.mention+".")
                     return msg.channel.createMessage("Please do not ping Hone Admins and above.").then(msg=>setTimeout(()=>msg.delete(), 5000))
                 }
                 if (member.roles.indexOf("856686649823330375") != -1) {
                     msg.delete()
+                    bot.createMessage("861084246487203850", member.mention + " was pinged by "+msg.member.mention+".")
                     return msg.channel.createMessage("Please do not ping Hone Admins and above.").then(msg=>setTimeout(()=>msg.delete(), 5000))
                 }
                 if (member.roles.indexOf("793508240381575181") != -1) {
                     msg.delete()
+                    bot.createMessage("861084246487203850", member.mention + " was pinged by "+msg.member.mention+".")
                     return msg.channel.createMessage("Please do not ping Hone Admins and above.").then(msg=>setTimeout(()=>msg.delete(), 5000))
                 }
                 if (member.roles.indexOf("849535394017181716") != -1) {
                     msg.delete()
+                    bot.createMessage("861084246487203850", member.mention + " was pinged by "+msg.member.mention+".")
                     return msg.channel.createMessage("Please do not ping Hone Admins and above.").then(msg=>setTimeout(()=>msg.delete(), 5000))
                 }
                 if (member.roles.indexOf("783059857955618866") != -1) {
                     msg.delete()
+                    bot.createMessage("861084246487203850", member.mention + " was pinged by "+msg.member.mention+".")
                     return msg.channel.createMessage("Please do not ping Hone Admins and above.").then(msg=>setTimeout(()=>msg.delete(), 5000))
                 }
             })
