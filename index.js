@@ -109,11 +109,6 @@ bot.on("messageCreate", msg => {
                     bot.createMessage("861084246487203850", `${member.username}#${member.discriminator} was pinged by ${msg.member.username}#${msg.member.discriminator}.`)
                     return msg.channel.createMessage("Please do not ping Hone Admins and above.").then(msg=>setTimeout(()=>msg.delete(), 5000))
                 }
-                if (member.roles.indexOf("773841259105222687") != -1) {
-                    msg.delete()
-                    bot.createMessage("861084246487203850", `${member.username}#${member.discriminator} was pinged by ${msg.member.username}#${msg.member.discriminator}.`)
-                    return msg.channel.createMessage("Please do not ping Hone Admins and above.").then(msg=>setTimeout(()=>msg.delete(), 5000))
-                }
                 if (member.roles.indexOf("856686649823330375") != -1) {
                     msg.delete()
                     bot.createMessage("861084246487203850", `${member.username}#${member.discriminator} was pinged by ${msg.member.username}#${msg.member.discriminator}.`)
